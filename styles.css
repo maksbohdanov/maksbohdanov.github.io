@@ -36,8 +36,7 @@ aside{
     display: flex;
     flex-direction: column;
     justify-content:center;
-    text-align: right;  
-   
+    text-align: right; 
     
 
 }
@@ -92,8 +91,7 @@ main{
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    min-width: 700px;;
-    
+    min-width: 1000px;    
 }
 
 .left-main_pic{
@@ -116,6 +114,7 @@ main{
     background-color:lightgreen ;
     text-align: left;
     padding: 20px;
+    min-width: 500px;
 }
 .bottom-main{
 
@@ -126,6 +125,8 @@ main{
     background-color:lightsalmon ;
     text-align: left;
     padding: 20px;
+    min-width: 500px;
+
 }
 
 
