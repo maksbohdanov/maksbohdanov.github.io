@@ -3,7 +3,7 @@
   <head> 
 
     <meta charset="utf-8">
-    <title>Lab 1</title>
+    <title>Lab 2</title>
     <link rel = "stylesheet" href="styles.css">
 
   </head>
@@ -28,17 +28,51 @@
             <map name="workmap">
                 <area shape="default" href="https://genius.com/artists/Melon-music">
             </map>
+
+            <button id="button1">TASK 1
+                <script>
+                    button1.onclick = function() {
+                        let tmp = document.getElementById('block4').innerHTML;
+                        document.getElementById('block4').innerHTML = document.getElementById('block5').innerHTML;
+                        document.getElementById('block5').innerHTML = tmp;
+                    };
+                </script>
+
+
+            </button>
+
+            <button id="button2">TASK 2
+                <script>
+                    button2.onclick = function() {
+                        let a = 5; let b = 8; let c = 12;
+                        let p = (a+b+c)/2;
+                        let S = Math.sqrt( p * (p-a) * (p-b) * (p-c) );
+                        document.getElementById('square').innerText = "S = " + S;
+                    };
+                </script>
+            </button>            
+            
+            
+            <div id="task3"></div>
+
+            
+          
+            
+
+            <p class="square" id="square"></p>            
        </div>
 
-       <div class="top-main">
+       <div class="top-main" id="block4">
             <p>
                 Diam vel quam elementum pulvinar etiam non quam lacus suspendisse.Fermentum dui faucibus in ornare quam viverra orci sagittis eu. Tempus quam pellentesque nec nam aliquam sem et.
             </p>
+            
         </div> 
 
-        <div class="bottom-main">
+        <div class="bottom-main" id="block5">
             <p>
-                Nisl rhoncus mattis rhoncus urna neque viverra justo nec ultrices. Euismod lacinia at quis risus sed vulputate. Tristique senectus et netus et malesuada. Velit egestas dui id ornare. At consectetur lorem donec massa sapien. Nunc faucibus a pellentesque sit. Nullam ac tortor vitae purus faucibus ornare suspendisse. Placerat vestibulum lectus mauris ultrices eros in. Eu ultrices vitae auctor eu augue ut lectus. Mi bibendum neque egestas congue. Pulvinar elementum integer enim neque. Velit euismod in pellentesque massa. Non diam phasellus vestibulum lorem. Ullamcorper morbi tincidunt ornare massa eget. Felis donec et odio pellentesque diam.            </p>
+                Nisl rhoncus mattis rhoncus urna neque viverra justo nec ultrices. Euismod lacinia at quis risus sed vulputate. Tristique senectus et netus et malesuada. Velit egestas dui id ornare. At consectetur lorem donec massa sapien. Nunc faucibus a pellentesque sit. Nullam ac tortor vitae purus faucibus ornare suspendisse. Placerat vestibulum lectus mauris ultrices eros in. Eu ultrices vitae auctor eu augue ut lectus. Mi bibendum neque egestas congue. Pulvinar elementum integer enim neque. Velit euismod in pellentesque massa. Non diam phasellus vestibulum lorem. Ullamcorper morbi tincidunt ornare massa eget. Felis donec et odio pellentesque diam.
+            </p>            
         </div> 
 
     </main>
@@ -70,6 +104,7 @@
         
     </footer>
 
+    <script src="./scripts.js"></script>
 
   </body>
 </html>
