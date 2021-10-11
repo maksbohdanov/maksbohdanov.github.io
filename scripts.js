@@ -2,40 +2,49 @@
 
 COOKIE_NAME = 'mins-count'
 
-
-
-window.onload = function(){
-    if (get_cookie(COOKIE_NAME) !== undefined) {
-        notify_on_cookies();
-    }
-    else {
-        add_form()
-    }
+if (get_cookie(COOKIE_NAME) !== undefined) {
+    notify_on_cookies();
+}
+else {
+    add_form()
 }
 
 
 function notify_on_cookies() {
 
-    let confirm = window.confirm("The greatest value from the previous time is: " + get_cookie(T3_COOKIE_NAME) +
-        ". Do you want to delete the cookie: " + T3_COOKIE_NAME)
+    let form_copy = document.getElementById('task3-form');
 
-    if (confirm === true) {
-        delete_cookie(T3_COOKIE_NAME)
-        add_form()
-    }
-    else {
-        alert("The cookie from the previous execution is still exists, " +
-            "so the page should be updated! The cookie will be removed!")
-        delete_cookie(T3_COOKIE_NAME)
-        window.location.reload()
-    }
+    document.getElementById('task3-form').remove();
+    alert(get_cookie(COOKIE_NAME)+
+    'Clicking the "OK" button will delete the data from the cookies');
+    delete_cookie(COOKIE_NAME);
+
+    document.getElementById('task3').appendChild(form_copy);
+    alert("The cookies have been deleted");
+    location.reload();    
 }
 
 function delete_cookie(name) {
     if(get_cookie(name)) {
         document.cookie = name + "=" +
-            ";expires=Thu, 01 Jan 1970 00:00:01 GMT";
+            ";expires=Thu, 01-Jan-70 00:00:01 GMT";
     }
+}
+
+function set_cookie(number) {
+    let name = COOKIE_NAME;
+    let value = number;    
+    let expireDate = new Date();
+    expireDate.setTime(expireDate.getTime() + 60 * 1000);
+
+    document.cookie = encodeURIComponent(name) + "=" + encodeURIComponent(value) + "; expires=" + expireDate;
+}
+
+
+function get_cookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
 }
 
 function add_form()
@@ -98,21 +107,7 @@ function mins_count() {
                          }    
 }
 
-function set_cookie(number) {
-    let name = COOKIE_NAME;
-    let value = number;    
-    let expireDate = new Date();
-    expireDate.setTime(expireDate.getTime() + 60 * 1000);
 
-    document.cookie = encodeURIComponent(name) + "=" + encodeURIComponent(value) + "; expires=" + expireDate;
-}
-
-
-function get_cookie(name) {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop().split(';').shift();
-}
 
 
 
