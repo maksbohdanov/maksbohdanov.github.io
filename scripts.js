@@ -12,14 +12,14 @@ else {
 
 function notify_on_cookies() {
 
-    let form_copy = document.getElementById('task3-form');
+    
 
     document.getElementById('task3-form').remove();
     alert(get_cookie(COOKIE_NAME)+
     'Clicking the "OK" button will delete the data from the cookies');
     delete_cookie(COOKIE_NAME);
 
-    document.getElementById('task3').appendChild(form_copy);
+    add_form();
     alert("The cookies have been deleted");
     location.reload();    
 }
