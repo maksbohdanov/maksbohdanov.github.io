@@ -3,14 +3,19 @@
 COOKIE_NAME = 'mins-count'
 
 if (get_cookie(COOKIE_NAME) !== undefined) {
-    notify_about_cookies();
+    notify_on_cookies();
 }
 else {
     add_form()
 }
 
+window.addEventListener('load', (e) =>{
+    e.preventDefault();
+    alert('AAAAAAA')
+})
 
-function notify_about_cookies() {
+
+function notify_on_cookies() {
 
     let confirm = window.confirm("The greatest value from the previous time is: " + get_cookie(T3_COOKIE_NAME) +
         ". Do you want to delete the cookie: " + T3_COOKIE_NAME)
@@ -98,7 +103,7 @@ function set_cookie(number) {
     let name = COOKIE_NAME;
     let value = number;    
     let expireDate = new Date();
-    expireDate.setTime(expireDate.getTime() + 600 * 1000);
+    expireDate.setTime(expireDate.getTime() + 60 * 1000);
 
     document.cookie = encodeURIComponent(name) + "=" + encodeURIComponent(value) + "; expires=" + expireDate;
 }
