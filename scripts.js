@@ -27,7 +27,7 @@ function notify_on_cookies() {
 function delete_cookie(name) {
     if(get_cookie(name)) {
         document.cookie = name + "=" +
-            ";expires=Thu, 01-Jan-70 00:00:01 GMT";
+            ";expires=-1";
     }
 }
 
