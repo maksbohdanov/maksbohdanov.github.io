@@ -2,17 +2,16 @@
 
 COOKIE_NAME = 'mins-count'
 
-if (get_cookie(COOKIE_NAME) !== undefined) {
-    notify_on_cookies();
-}
-else {
-    add_form()
-}
 
-window.addEventListener('load', (e) =>{
-    e.preventDefault();
-    alert('AAAAAAA')
-})
+
+window.onload = function(){
+    if (get_cookie(COOKIE_NAME) !== undefined) {
+        notify_on_cookies();
+    }
+    else {
+        add_form()
+    }
+}
 
 
 function notify_on_cookies() {
