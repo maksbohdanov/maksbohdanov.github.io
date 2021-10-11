@@ -40,12 +40,12 @@ function set_cookie(number) {
     document.cookie = encodeURIComponent(name) + "=" + encodeURIComponent(value) + "; expires=" + expireDate;
 }
 
-
 function get_cookie(name) {
     const value = `; ${document.cookie}`;
     const parts = value.split(`; ${name}=`);
     if (parts.length === 2) return parts.pop().split(';').shift();
 }
+
 
 function add_form()
 {
@@ -105,6 +105,22 @@ function mins_count() {
                            alert("count = " + count +" (" + min_numb +")");
                             
                          }    
+}
+
+
+//TASK 4
+document.querySelector('.left-main').addEventListener('load', () =>  {
+    applyAndSaveColor()
+})
+
+document.querySelector('.left-main').style.color =
+    localStorage.getItem('task4-color') ?? document.querySelector('.left-main').style.color
+
+function applyAndSaveColor() {
+    let color = document.querySelector('#task4-color').value
+
+    document.querySelector('.left-main').style.color = color
+    localStorage.setItem('task4-color', color)
 }
 
 
