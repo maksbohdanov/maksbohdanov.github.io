@@ -10,16 +10,14 @@ else {
 }
 
 
-function notify_on_cookies() {
+function notify_on_cookies() {    
 
-    
-
-    document.getElementById('task3-form').remove();
+    document.getElementById('task3-form').hidden = true;
     alert(get_cookie(COOKIE_NAME)+
     'Clicking the "OK" button will delete the data from the cookies');
     delete_cookie(COOKIE_NAME);
 
-    add_form();
+    document.getElementById('task3-form').hidden = false;
     alert("The cookies have been deleted");
     location.reload();    
 }
