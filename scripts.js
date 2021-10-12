@@ -63,6 +63,7 @@ function add_form()
     let btn = document.createElement('input')
     btn.type = 'submit'
     btn.value = 'TASK 3'
+    btn.id = 'button3'
     btn.addEventListener('click', (e) => {
         e.preventDefault()
         mins_count()
@@ -109,12 +110,23 @@ function mins_count() {
 const colorPicker = document.getElementById('task4-color');
 colorPicker.addEventListener('change', ChangeColor);
 
+const leftPanel = document.querySelector('.left-main');
+const btn1 = document.getElementById('button1');
+const btn2 = document.getElementById('button2');
+const btn3 = document.getElementById('button3');
 
 document.body.onload = function(){
-    document.getElementById('left-main').style.color =
-        localStorage.getItem('task4-color') ?? document.querySelector('.left-main').style.color
+    leftPanel.style.color =localStorage.getItem('task4-color') ?? leftPanel.style.color;
+    btn1.style.color = localStorage.getItem('task4-color') ?? btn1.style.color;
+    btn2.style.color = localStorage.getItem('task4-color') ?? btn2.style.color;   
+    
+    if(btn3){ 
+        btn3.style.color = localStorage.getItem('task4-color') ?? btn3.style.color;  
 
+    }
 };
+
+window.onunload = function(){ localStorage.clear(); }
 
 function ChangeColor() {
     let color = colorPicker.value
