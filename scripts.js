@@ -106,19 +106,24 @@ function mins_count() {
 
 
 //TASK 4
-document.querySelector('.left-main').addEventListener('load', () =>  {
-    applyAndSaveColor()
-})
+const colorPicker = document.getElementById('task4-color');
+colorPicker.addEventListener('change', ChangeColor);
 
-document.querySelector('.left-main').style.color =
-    localStorage.getItem('task4-color') ?? document.querySelector('.left-main').style.color
 
-function applyAndSaveColor() {
-    let color = document.querySelector('#task4-color').value
+document.body.onload = function(){
+    document.getElementById('left-main').style.color =
+        localStorage.getItem('task4-color') ?? document.querySelector('.left-main').style.color
 
-    document.querySelector('.left-main').style.color = color
+};
+
+function ChangeColor() {
+    let color = colorPicker.value
     localStorage.setItem('task4-color', color)
 }
+
+
+
+
 
 
 
