@@ -126,7 +126,7 @@ document.body.onload = function(){
     }
 };
 
-window.onunload = function(){ localStorage.clear(); }
+window.onunload = function(){ localStorage.removeItem('task4-color'); }
 
 function ChangeColor() {
     let color = colorPicker.value
