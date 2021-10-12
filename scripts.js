@@ -12,8 +12,8 @@ else {
 
 function notify_on_cookies() {    
 
-    alert(get_cookie(COOKIE_NAME)+
-    'Clicking the "OK" button will delete the data from the cookies');
+    alert('Count = ' + get_cookie(COOKIE_NAME)+
+    '\nClicking the "OK" button will delete the data from the cookies');
     delete_cookie(COOKIE_NAME);
 
     add_form();
