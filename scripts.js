@@ -116,12 +116,12 @@ const btn2 = document.getElementById('button2');
 const btn3 = document.getElementById('button3');
 
 document.body.onload = function(){
-    leftPanel.style.color =localStorage.getItem('task4-color') ?? leftPanel.style.color;
-    btn1.style.color = localStorage.getItem('task4-color') ?? btn1.style.color;
-    btn2.style.color = localStorage.getItem('task4-color') ?? btn2.style.color;   
+    document.querySelector('.left-main') =localStorage.getItem('task4-color') ?? leftPanel.style.color;
+    document.getElementById('button1') = localStorage.getItem('task4-color') ?? btn1.style.color;
+    document.getElementById('button2') = localStorage.getItem('task4-color') ?? btn2.style.color;   
     
     if(btn3){ 
-        btn3.style.color = localStorage.getItem('task4-color') ?? btn3.style.color;  
+        document.getElementById('button3') = localStorage.getItem('task4-color') ?? btn3.style.color;  
 
     }
 };
