@@ -126,13 +126,27 @@ document.body.onload = function(){
     }
 };
 
-window.onunload = function(){ localStorage.removeItem('task4-color'); }
+//window.onunload = function(){ localStorage.removeItem('task4-color'); }
 
 function ChangeColor() {
     let color = colorPicker.value
     localStorage.setItem('task4-color', color)
 }
 
+
+
+//TASK5
+
+let topPanel = document.querySelector(".textbox-top");
+
+topPanel.addEventListener('clicl', (e) =>{
+    testclick();
+})
+
+function testclick()
+{
+    alert("Test ckick");
+}
 
 
 
