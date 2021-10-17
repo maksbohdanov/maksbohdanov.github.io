@@ -137,16 +137,66 @@ function ChangeColor() {
 
 //TASK5
 
-let topPanel = document.querySelector(".textbox-top");
+let topPanel = document.getElementById('hdr');
 
-topPanel.addEventListener('clicl', (e) =>{
-    testclick();
-})
+let form_header =  'form_header'
+//topPanel.addEventListener('dblclick', createForm(topPanel, form_top));
 
-function testclick()
-{
-    alert("Test ckick");
+topPanel.ondblclick = createForm(topPanel, form_header);
+
+
+function createForm(panel, form){
+    if(!form)
+    {
+        let form = document.createElement('form')
+        form.id = 'task5-form'
+    
+        let br = document.createElement('br')
+    
+        let label = document.createElement('label')
+        label.htmlFor = 'items-input'
+        label.innerHTML = 'Enter an item:'
+    
+        let itemsInput = document.createElement('input')
+        itemsInput.type = 'text'
+        itemsInput.id = 'items-input'
+        itemsInput.placeholder = 'Item'
+    
+        let btn1 = document.createElement('input')
+        btn1.type = 'submit'
+        btn1.value = 'ADD'
+        btn1.id = 'button5_add'
+        btn1.addEventListener('click', (e) => {
+            e.preventDefault()
+        })
+    
+        let btn2 = document.createElement('input')
+        btn2.type = 'submit'
+        btn2.value = 'SAVE'
+        btn2.id = 'button5_save'
+        btn2.addEventListener('click', (e) => {
+            e.preventDefault()
+        })
+    
+        form.appendChild(label)
+        form.appendChild(br)
+        form.appendChild(br)
+        form.appendChild(itemsInput)
+        form.appendChild(br)
+        form.appendChild(br)
+        form.appendChild(btn1)
+        form.appendChild(br)
+        form.appendChild(btn2)
+    
+        
+        document.getElementById(form).appendChild(form)
+        
+        form = true;
+    }
 }
+
+
+
 
 
 
