@@ -82,27 +82,28 @@ function add_form()
 
 function mins_count() {
     let str = document.getElementById('nums-input').value;
-                       str = str.replace(/\s+/g, ' ').trim();
-                       let nums = str.split(' ');
+    str = str.replace(/\s+/g, ' ').trim();
+    let nums = str.split(' ');
 
-                       if(nums.length != 10){
-                           alert("You haven't entered 10 values");
-                           return;                           
-                       }
+    if(nums.length != 10)
+    {
+        alert("You haven't entered 10 values");
+        return;                           
+    }
 
-                       let isNubers = true;
-                       nums.forEach( function IsNuber( currentValue ) {
-                        if( isNubers && isNaN( currentValue ) ) { alert("Invalid input"); isNubers = false; }
-                       });
-                       
-                       nums = nums.map(Number);
-                       if(isNubers){
-                           let count =  nums.filter(element => element ==  Math.min.apply(null, nums) ).length;
-                           let min_numb = Math.min.apply(null, nums);
-                           set_cookie(count);
-                           alert("count = " + count +" (" + min_numb +")");
-                            
-                         }    
+    let isNubers = true;
+    nums.forEach( function IsNuber( currentValue ) {
+     if( isNubers && isNaN( currentValue ) ) { alert("Invalid input"); isNubers = false; }
+    });
+    
+    nums = nums.map(Number);
+    if(isNubers)
+    {
+        let count =  nums.filter(element => element ==  Math.min.apply(null, nums) ).length;
+        let min_numb = Math.min.apply(null, nums);
+        set_cookie(count);
+        alert("count = " + count +" (" + min_numb +")");                            
+    }    
 }
 
 
@@ -138,18 +139,37 @@ function ChangeColor() {
 //TASK5
 
 let topPanel = document.getElementById('hdr');
+let asidePanel = document.getElementById('asd')
+let leftMainPanel = document.getElementById('leftmain')
+let topMainPanel = document.getElementById('topmain')
+let bottomMainPanel = document.getElementById('bottommain')
+let bottomPanel = document.getElementById('ftr')
 
-let form_header =  'form_header'
-//topPanel.addEventListener('dblclick', createForm(topPanel, form_top));
+let form_header =  [topPanel,'form-header', false]
+let form_aside =  [asidePanel,'form-aside', false]
+let form_left_main =  [leftMainPanel,'form-left-main', false]
+let form_top_main =  [topMainPanel,'form-top-main', false]
+let form_bottom_main =  [bottomMainPanel,'form-bottom-main', false]
+let form_footer =  [bottomPanel,'form-footer', false]
 
-topPanel.ondblclick = createForm(topPanel, form_header);
+
+let forms = [form_header, form_aside, form_left_main, form_top_main, form_bottom_main, form_footer]
+
+forms.forEach(element => {
+    element[0].addEventListener('dblclick', (e) => createForm(element))
+});
 
 
-function createForm(panel, form){
-    if(!form)
+
+function createForm(form){
+    if( !form[2] )
     {
-        let form = document.createElement('form')
-        form.id = 'task5-form'
+        let form5 = document.createElement('form')
+        let panel_identifier = form[1].slice(form[1].indexOf("-"), form[1].length);
+        form5.id = 'task5-form' + panel_identifier
+
+        let list5 = document.createElement('ul')
+        list5.id = 'task5-list' + panel_identifier
     
         let br = document.createElement('br')
     
@@ -159,42 +179,61 @@ function createForm(panel, form){
     
         let itemsInput = document.createElement('input')
         itemsInput.type = 'text'
-        itemsInput.id = 'items-input'
-        itemsInput.placeholder = 'Item'
+        itemsInput.id = 'items-input' + panel_identifier
+        itemsInput.placeholder = 'text...'
     
         let btn1 = document.createElement('input')
         btn1.type = 'submit'
         btn1.value = 'ADD'
-        btn1.id = 'button5_add'
+        btn1.id = 'button5_add' + panel_identifier
         btn1.addEventListener('click', (e) => {
             e.preventDefault()
+            addItem(itemsInput, list5)
         })
     
         let btn2 = document.createElement('input')
         btn2.type = 'submit'
         btn2.value = 'SAVE'
-        btn2.id = 'button5_save'
+        btn2.id = 'button5_save' + panel_identifier
         btn2.addEventListener('click', (e) => {
             e.preventDefault()
         })
     
-        form.appendChild(label)
-        form.appendChild(br)
-        form.appendChild(br)
-        form.appendChild(itemsInput)
-        form.appendChild(br)
-        form.appendChild(br)
-        form.appendChild(btn1)
-        form.appendChild(br)
-        form.appendChild(btn2)
+        form5.appendChild(label)
+        form5.appendChild(br)
+        form5.appendChild(br)
+        form5.appendChild(itemsInput)
+        form5.appendChild(br)
+        form5.appendChild(br)
+        form5.appendChild(btn1)
+        form5.appendChild(br)
+        form5.appendChild(btn2)
     
         
-        document.getElementById(form).appendChild(form)
+        document.getElementById(form[0].id).appendChild(form5)
         
-        form = true;
+        form[2] = true;
+
+        
+        document.getElementById(form[0].id).appendChild(list5)
+
     }
+    
+
 }
 
+function addItem(textbox, list)
+{
+    let str = textbox.value;
+
+    if(str.length != 0)
+    {
+        let itemToAdd = document.createElement('li');
+        itemToAdd.innerHTML = str;
+        list.append(itemToAdd); 
+        
+    }
+}
 
 
 
