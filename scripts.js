@@ -115,6 +115,11 @@ const leftPanel = document.querySelector('.left-main');
 const btn1 = document.getElementById('button1');
 const btn2 = document.getElementById('button2');
 const btn3 = document.getElementById('button3');
+const numsinput = document.getElementById('nums-input')
+const btnADD = document.getElementById('button5_add')
+const btnSAVE = document.getElementById('button5_save')
+const itemsinput = document.getElementById('items-input')
+
 
 document.body.onload = function(){
     document.querySelector('.left-main').style.color = localStorage.getItem('task4-color') ?? leftPanel.style.color;
@@ -122,9 +127,15 @@ document.body.onload = function(){
     document.getElementById('button2').style.color = localStorage.getItem('task4-color') ?? btn2.style.color;   
     
     if(btn3){ 
-        document.getElementById('button3').style.color = localStorage.getItem('task4-color') ?? btn3.style.color;  
+        document.getElementById('button3').style.color = localStorage.getItem('task4-color') ?? btn3.style.color; 
 
     }
+    if(numsinput) { document.getElementById('nums-input').style.color = localStorage.getItem('task4-color') ?? numsinput.style.color; }
+    if(btnADD) { document.getElementById('button5_add').style.color = localStorage.getItem('task4-color') ?? btnADD.style.color; }
+    if(btnSAVE) { document.getElementById('button5_save').style.color = localStorage.getItem('task4-color') ?? btnSAVE.style.color; } 
+    if(itemsinput) { document.getElementById('button5_save').style.color = localStorage.getItem('task4-color') ?? itemsinput.style.color; } 
+
+
 };
 
 
@@ -276,17 +287,4 @@ $(window).on('load', function()
         if( tag.startsWith('task5') )  { localStorage.removeItem(tag); }        
     });  
 });
-    
-
-
-
-
-
-
-
-
-
-
-
-
 
