@@ -210,18 +210,19 @@ function createForm(form){
         form5.appendChild(btn2)
     
         
-        //let squareNode = document.getElementById('square')
-        //if(squareNode) {  document.getElementById('task3').insertBefore(form, squareNode) }
-        //else{    document.getElementById('task3').appendChild(form) }
-    
-
-        document.getElementById(form[0].id).appendChild(form5)
-        
-        form[2] = true;
-
-        
-        document.getElementById(form[0].id).appendChild(list5)
-
+        let squareNode = document.getElementById('square')
+        if(squareNode)
+         { 
+             document.getElementById(form[0].id).insertBefore(form5, squareNode)
+             form[2] = true;        
+             document.getElementById(form[0].id).insertBefore(list5, squareNode)
+         }
+        else
+        {   
+            document.getElementById(form[0].id).appendChild(form5)        
+            form[2] = true;   
+            document.getElementById(form[0].id).appendChild(list5)            
+        }  
     }
     
 
