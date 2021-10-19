@@ -126,6 +126,7 @@ document.body.onload = function(){
         document.getElementById('button3').style.color = localStorage.getItem('task4-color') ?? btn3.style.color; 
 
     }
+    if(numsinput){ document.getElementById('nums-input').style.color = localStorage.getItem('task4-color') ?? numsinput.style.color; }
 };
 
 
