@@ -35,9 +35,9 @@
             <button id="button1">TASK 1
                 <script>
                     button1.onclick = function() {
-                        let tmp = document.getElementById('block4').innerHTML;
-                        document.getElementById('block4').innerHTML = document.getElementById('block5').innerHTML;
-                        document.getElementById('block5').innerHTML = tmp;
+                        let tmp = document.getElementById('topmain').innerHTML;
+                        document.getElementById('topmain').innerHTML = document.getElementById('bottommain').innerHTML;
+                        document.getElementById('bottommain').innerHTML = tmp;
                     };
                 </script>
 
@@ -65,7 +65,7 @@
             <div id="form-left-main"></div>         
             
 
-            <p class="square" id="square"></p>            
+            <div class="square" id="square"></div>            
        </div>
 
        <div class="top-main" id="topmain">
@@ -119,6 +119,7 @@
         
     </footer>
 
+    <script src="https://yastatic.net/jquery/3.3.1/jquery.min.js"></script>
     <script src="./scripts.js"></script>
 
   </body>

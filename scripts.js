@@ -127,7 +127,6 @@ document.body.onload = function(){
     }
 };
 
-//window.onunload = function(){ localStorage.removeItem('task4-color'); }
 
 function ChangeColor() {
     let color = colorPicker.value
@@ -197,6 +196,7 @@ function createForm(form){
         btn2.id = 'button5_save' + panel_identifier
         btn2.addEventListener('click', (e) => {
             e.preventDefault()
+            saveList(list5, form)
         })
     
         form5.appendChild(label)
@@ -210,6 +210,11 @@ function createForm(form){
         form5.appendChild(btn2)
     
         
+        //let squareNode = document.getElementById('square')
+        //if(squareNode) {  document.getElementById('task3').insertBefore(form, squareNode) }
+        //else{    document.getElementById('task3').appendChild(form) }
+    
+
         document.getElementById(form[0].id).appendChild(form5)
         
         form[2] = true;
@@ -231,9 +236,48 @@ function addItem(textbox, list)
         let itemToAdd = document.createElement('li');
         itemToAdd.innerHTML = str;
         list.append(itemToAdd); 
+
         
     }
 }
+
+function saveList(ulist, form)
+{
+    let panel_identifier = form[1].slice(form[1].indexOf("-"), form[1].length);
+    let key = "task5-list" + panel_identifier
+
+    if(ulist.children.length != 0)
+    {
+        var items = {
+            'list': []
+          };
+          let id = '#' + ulist.id
+          $(id).children().each(function(i,v){
+              items.list.push({ 'id': i, 'value': $(v).text()});
+            });
+                        
+          localStorage.setItem(key, JSON.stringify(items));
+
+          form[0].innerHTML = ulist.innerHTML
+    
+    }
+
+}
+
+
+
+
+$(window).on('load', function()
+{
+    let tags = Object.keys(localStorage)
+    tags.forEach(tag => 
+    {
+        if( tag.startsWith('task5') )  { localStorage.removeItem(tag); }        
+    });  
+});
+    
+
+
 
 
 
